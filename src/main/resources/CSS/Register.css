@@ -1,0 +1,17 @@
+.generateButton{
+    -fx-background-color: transparent;
+}
+.generateButton:hover{
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 72, 255, 0.6), 5, 0.0, 0, 9);
+}
+.registerButton{
+    -fx-background-color: transparent;
+}
+.registerButton:hover{
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 72, 255, 0.6), 5, 0.0, 0, 9);
+}
+.errorLabel{
+    -fx-text-fill: red;
+}

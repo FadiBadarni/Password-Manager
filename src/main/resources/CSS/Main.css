@@ -1,0 +1,21 @@
+.Main{
+    -fx-background-radius: 6;
+    -fx-background-insets: 0, 0 1 1 0;
+    -fx-background-color: transparent;
+}
+.loginButton:hover {
+    -fx-text-fill: #a9a1a1;
+    -fx-cursor: hand;
+}
+.registerButton:hover {
+    -fx-text-fill: #6cef0f;
+    -fx-cursor: hand;
+}
+.aboutButton:hover {
+    -fx-text-fill: #f18214;
+    -fx-cursor: hand;
+}
+.quitButton:hover {
+    -fx-text-fill: #ff0000;
+    -fx-cursor: hand;
+}

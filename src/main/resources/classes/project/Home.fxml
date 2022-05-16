@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="619.0" prefWidth="931.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Home">
+   <children>
+      <ImageView fitHeight="567.0" fitWidth="853.0" layoutX="40.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../../images/bgma.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="268.0" fitWidth="269.0" layoutX="163.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/4cb9beb4a0972eb7b97d76bdbd6c4051-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="homeButton" layoutX="213.0" layoutY="236.0" mnemonicParsing="false" onAction="#homeButton_Click" prefHeight="46.0" prefWidth="169.0" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="Home" />
+      <ImageView fitHeight="268.0" fitWidth="269.0" layoutX="468.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/4cb9beb4a0972eb7b97d76bdbd6c4051-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="268.0" fitWidth="269.0" layoutX="163.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/4cb9beb4a0972eb7b97d76bdbd6c4051-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="268.0" fitWidth="269.0" layoutX="468.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/4cb9beb4a0972eb7b97d76bdbd6c4051-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="addPasswordButton" layoutX="493.0" layoutY="236.0" mnemonicParsing="false" onAction="#addPasswordButton_Click" prefHeight="52.0" prefWidth="218.0" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="Add Password" />
+      <Button fx:id="credentialsButton" layoutX="188.0" layoutY="420.0" mnemonicParsing="false" onAction="#credentialsButton_Click" prefHeight="52.0" prefWidth="218.0" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="All Credentials" />
+      <Button fx:id="quitButton" layoutX="517.0" layoutY="420.0" mnemonicParsing="false" onAction="#quitButton_Click" prefHeight="46.0" prefWidth="169.0" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="Quit" />
+   </children>
+</Pane>
