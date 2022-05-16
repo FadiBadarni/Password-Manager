@@ -13,8 +13,8 @@ module classes.project {
     requires java.desktop;
     requires passay;
     requires com.opencsv;
-    requires AnimateFX;
     requires java.sql;
+    requires AnimateFX;
     requires mysql.connector.java;
 
     opens classes.project to javafx.fxml;
