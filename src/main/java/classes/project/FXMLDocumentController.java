@@ -18,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
@@ -25,17 +26,28 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.xml.bind.DatatypeConverter;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static classes.project.Asymmetric.*;
+
 public class FXMLDocumentController implements Initializable {
+    @FXML
+    private javafx.scene.control.TextArea passwordHintField;
+    @FXML
+    private javafx.scene.control.TextField nameField, usernameField, passwordField, loginUrlField;
+    @FXML
+    private Label infoLabel;
+    KeyPair keypair = generateRSAKkeyPair();
     public Button addBT;
     public Button Close;
     public Button back;
@@ -47,6 +59,9 @@ public class FXMLDocumentController implements Initializable {
     ObservableList<CustomerCard> list = FXCollections.observableArrayList();
 
     String x = "C:\\Users\\97252\\Desktop\\Password-Manager\\src\\main\\resources\\images\\ICON\\";
+
+    public FXMLDocumentController() throws Exception {
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -85,17 +100,18 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void onAddButtonClick(ActionEvent actionEvent) throws IOException {
-
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPassword.fxml")));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        list.add(new CustomerCard("Gmail", "Username", x + "gmail.png", "https:www.gmail.com/"));
+        onSearch();
+//        Stage stage = new Stage();
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPassword.fxml")));
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     public void onBackButtonClick(ActionEvent actionEvent) throws IOException {
         Main m = new Main();
-        m.changeScene("Home.fxml");
+        m.changeScene("Main.fxml");
     }
 
     public void onCloseButtonClick(ActionEvent actionEvent) {
@@ -182,7 +198,36 @@ public class FXMLDocumentController implements Initializable {
     public void onClose_AddButtonClick(ActionEvent actionEvent) {
     }
 
-    public void saveButton_Click(ActionEvent actionEvent) {
+    public void saveButton_Click(ActionEvent actionEvent) throws Exception {
+
+        byte[] cipherText = do_RSAEncryption(passwordHintField.getText(), keypair.getPrivate());
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "root");
+             PreparedStatement psInsert = connection.prepareStatement("INSERT INTO credentials " +
+                     "(application_name, username, password, login_url, password_hint, owner) " +
+                     "VALUES (?, ?, ?, ?, ?, ?)")) {
+
+            psInsert.setString(1, nameField.getText());
+            psInsert.setString(2, usernameField.getText());
+            psInsert.setString(3, passwordField.getText());
+            psInsert.setString(4, loginUrlField.getText());
+            psInsert.setString(5, DatatypeConverter.printHexBinary(cipherText));
+            psInsert.setString(6, do_RSADecryption(cipherText, keypair.getPublic()));
+
+            psInsert.executeUpdate();
+
+
+
+//            Main m = new Main();
+//            m.changeScene("Home.fxml");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
 }

@@ -62,7 +62,7 @@ public class Main extends Application {
 
     public void quitButton_Click(ActionEvent actionEvent) throws IOException {
         Main m = new Main();
-        m.changeScene("Home.fxml");
+        m.changeScene("FXMLDocument.fxml");
     }
     public void panePressed(MouseEvent mouseEvent) {
         stg = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();

@@ -21,22 +21,15 @@ import java.net.URL;
 import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class CustomerCard extends Pane {
-
     protected final ImageView photo;
     protected final Label appName;
-
-
     protected final Label username;
-
-
-
 
     public CustomerCard(String appName, String UserName, String icon,String link) {
 
         photo = new ImageView();
         this.appName = new Label();
         username = new Label();
-
 
      //   setId(Id + "");
         setPrefHeight(240.0);
