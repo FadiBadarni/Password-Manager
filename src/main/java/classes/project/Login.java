@@ -35,16 +35,7 @@ public class Login{
 
     @FXML
     void loginButton_Click(ActionEvent event) throws IOException, NoSuchAlgorithmException, SQLException {
-//        String password = getPassword();
-//        updateLoginUsernamesAndPasswords();
-//        String encryptedPassword = encryptor.encryptString(passwordField.getText());
-//
-//        if (encryptor.encryptString(password).equals(encryptedPassword)) {
-//            Main m = new Main();
-//            m.changeScene("Home.fxml");
-//        } else {
-//            System.out.println("Error login!");
-//        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -60,8 +51,21 @@ public class Login{
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(encryptor.encryptString(passwordField.getText()))) {
-                        Main m = new Main();
-                        m.changeScene("Home.fxml");
+                       // Main m = new Main();
+                        Node node = (Node) event.getSource();
+                        Stage stage = (Stage) node.getScene().getWindow();
+                        stage.close();
+                        try {
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("FXMLDocument.fxml"));
+                        stage.setUserData(usernameField.getText());
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        System.err.println(String.format("Error: %s", e.getMessage()));
+                    }
+                      //  m.changeScene("Home.fxml");
+
                     } else {
                         errorField.setText("Passwords Mismatch.");
                     }
@@ -127,4 +131,25 @@ public class Login{
     }
 
 
+    public void gologinButton_Click(ActionEvent actionEvent) throws IOException {
+        if (usernameField.getText().length() != 0) {
+
+
+            //FXMLDocumentController fxmlDocumentController=new FXMLDocumentController(usernameField.getText());
+           // Main m = new Main();
+           // m.changeScene("FXMLDocument.fxml");
+            Node node = (Node) actionEvent.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.close();
+            try {
+                Parent pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("FXMLDocument.fxml")));
+                stage.setUserData(usernameField.getText());
+                Scene scene = new Scene(pane);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                System.err.println(String.format("Error: %s", e.getMessage()));
+            }
+        }
+    }
 }
