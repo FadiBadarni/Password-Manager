@@ -18,6 +18,25 @@
 
 <Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMouseMoved="#onMouseMoved" onMousePressed="#panePressed" prefHeight="639.0" prefWidth="1077.0" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.FXMLDocumentController">
    <children>
+      <Pane fx:id="show_pane" layoutY="63.0" prefHeight="576.0" prefWidth="311.0">
+         <children>
+            <Label layoutX="21.0" layoutY="185.0" text="Username" />
+            <Label layoutX="22.0" layoutY="214.0" text="password" />
+            <ImageView fx:id="icon_show" fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="openLink" layoutX="245.0" layoutY="531.0" mnemonicParsing="false" onAction="#onOpenLinkButtonClick" text="openLink" />
+            <Button fx:id="edit" layoutX="14.0" layoutY="531.0" mnemonicParsing="false" onAction="#onEditButtonClick" text="Edit" />
+            <Label layoutX="24.0" layoutY="246.0" text="link" />
+            <TextField fx:id="username_show" layoutX="104.0" layoutY="181.0" />
+            <TextField fx:id="password_show" layoutX="102.0" layoutY="210.0" />
+            <TextField fx:id="link_show" layoutX="102.0" layoutY="240.0" />
+         </children>
+      </Pane>
+      <ScrollPane fx:id="listPane" layoutX="4.0" layoutY="47.0" prefHeight="598.0" prefWidth="1093.0">
+         <content>
+            <GridPane fx:id="cardHolder" layoutX="12.0" layoutY="109.0">
+            </GridPane>
+         </content>
+      </ScrollPane>
       <Text fx:id="username" fill="WHITE" layoutX="57.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page">
          <font>
             <Font size="20.0" />
@@ -71,14 +90,13 @@
          </textFill>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d47a1" height="41.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1100.0" />
-      <ScrollPane fx:id="listPane" layoutX="4.0" layoutY="47.0" prefHeight="598.0" prefWidth="1093.0">
-         <content>
-            <GridPane fx:id="cardHolder" layoutX="12.0" layoutY="109.0">
-            </GridPane>
-         </content>
-      </ScrollPane>
       <Pane fx:id="addPane" layoutX="-1.0" layoutY="63.0" prefHeight="576.0" prefWidth="311.0">
          <children>
+            <ScrollPane fx:id="listPane1" layoutY="360.0" prefHeight="73.0" prefWidth="282.0">
+               <content>
+                  <GridPane fx:id="cardHolder1" layoutX="12.0" layoutY="109.0" prefWidth="0.0" />
+               </content>
+            </ScrollPane>
             <Label layoutX="52.0" layoutY="7.0" text="EDIT CREDENTIALS" textFill="#968c8c">
                <font>
                   <Font name="Berlin Sans FB" size="24.0" />
@@ -124,19 +142,6 @@
                   <Font name="Berlin Sans FB" size="20.0" />
                </font>
             </Button>
-         </children>
-      </Pane>
-      <Pane fx:id="show_pane" layoutY="63.0" prefHeight="576.0" prefWidth="311.0">
-         <children>
-            <Label layoutX="21.0" layoutY="185.0" text="Username" />
-            <Label layoutX="22.0" layoutY="214.0" text="password" />
-            <ImageView fx:id="icon_show" fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="openLink" layoutX="245.0" layoutY="531.0" mnemonicParsing="false" onAction="#onOpenLinkButtonClick" text="openLink" />
-            <Button fx:id="edit" layoutX="14.0" layoutY="531.0" mnemonicParsing="false" onAction="#onEditButtonClick" text="Edit" />
-            <Label layoutX="24.0" layoutY="246.0" text="link" />
-            <TextField fx:id="username_show" layoutX="104.0" layoutY="181.0" />
-            <TextField fx:id="password_show" layoutX="102.0" layoutY="210.0" />
-            <TextField fx:id="link_show" layoutX="102.0" layoutY="240.0" />
          </children>
       </Pane>
    </children>

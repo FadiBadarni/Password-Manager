@@ -44,7 +44,7 @@ public class FXMLDocumentController implements Initializable {
     public Pane addPane;
     public ScrollPane listPane;
     public Pane mainPane;
-    public VBox itemHolder;
+
     public Pane show_pane;
  
   
@@ -55,6 +55,7 @@ public class FXMLDocumentController implements Initializable {
     public TextField username_show;
     public TextField password_show;
     public TextField link_show;
+    public VBox vbox_add;
     @FXML
     private javafx.scene.control.TextArea passwordHintField;
     @FXML
@@ -68,13 +69,16 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Text username;
     @FXML
-    private GridPane cardHolder;
+    private GridPane cardHolder,cardHolder1;
     private static Stage stg;
     ObservableList<CustomerCard> list = FXCollections.observableArrayList();
+    ObservableList<CustomerList> list2= FXCollections.observableArrayList();
     boolean refresh=true;
     private String link;
 
     String x = "C:\\Users\\abada\\IdeaProjects\\Password-Manager_2\\src\\main\\resources\\images\\ICON\\";
+
+    String[] icon={"facebook.png","gmail.com","instagram.png"};
 
     public FXMLDocumentController() throws Exception {
     }
@@ -83,6 +87,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+
+
 
         double r = 40;
         addBT.setShape(new Circle(r));
@@ -121,6 +127,25 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void onAddButtonClick(ActionEvent actionEvent) throws IOException {
+        cardHolder1.setAlignment(Pos.CENTER);
+        cardHolder1.setVgap(70.00);
+        cardHolder1.setHgap(70.00);
+        cardHolder1.setStyle("-fx-padding:10px;-fx-border-color:transparent");
+        
+        for(String s:icon)
+            list2.add(new CustomerList(s.replace(".png",""),"C:\\Users\\abada\\IdeaProjects\\Password-Manager_2\\src\\main\\resources\\images\\ICON\\google-plus.png",this));
+        cardHolder1.getChildren().clear();
+        int count = 0, i = 0;
+        while (count < list2.stream().count()) {
+            for (int j = 0; j < 3; j++) {
+                cardHolder1.add(list2.get(count), j, i);
+                count++;
+                if (count >= list2.stream().count())
+                    break;
+            }
+            i++;
+        }
+
         if(addPane.isVisible()) {
             listPane.setTranslateX(0);
             listPane.setScaleX(1);
@@ -131,11 +156,7 @@ public class FXMLDocumentController implements Initializable {
             show_pane.setVisible(false);
         }
         addPane.setVisible(!addPane.isVisible());
-    }
 
-    public void onBackButtonClick(ActionEvent actionEvent) throws IOException {
-        Main m = new Main();
-        m.changeScene("Main.fxml");
     }
 
     public void onCloseButtonClick(ActionEvent actionEvent) {
@@ -315,5 +336,11 @@ public class FXMLDocumentController implements Initializable {
             edit.setText("Edit");
 
         }
+    }
+
+    public void listicon(String appName, String icon) {
+    }
+
+    public void onBackButtonClick(ActionEvent actionEvent) {
     }
 }
