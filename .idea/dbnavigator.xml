@@ -17,8 +17,8 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
-      <charset value="windows-1252" />
-      <charset value="windows-1252" />
+      <charset value="windows-1255" />
+      <charset value="windows-1255" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -28,22 +28,15 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="98f55444-2741-4344-8635-d1065a9cf5ca">
-      <console name="MySQL Connection" type="STANDARD" schema="" session="Main" />
+    <connection id="89d6c38a-377c-40ef-ab6d-37a6ece6e941">
+      <console name="MySQL Connection" type="STANDARD" schema="test1" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="98f55444-2741-4344-8635-d1065a9cf5ca" />
-  </component>
-  <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="98f55444-2741-4344-8635-d1065a9cf5ca" dataset="javafx.credentials" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="98f55444-2741-4344-8635-d1065a9cf5ca" dataset="javafx.person_fruit" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="98f55444-2741-4344-8635-d1065a9cf5ca" dataset="javafx.fruits" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="98f55444-2741-4344-8635-d1065a9cf5ca" dataset="javafx.person" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="98f55444-2741-4344-8635-d1065a9cf5ca" dataset="mydatabase.users" active-filter-id="" />
+    <connection id="89d6c38a-377c-40ef-ab6d-37a6ece6e941" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers>
@@ -76,7 +69,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="98f55444-2741-4344-8635-d1065a9cf5ca" active="true" signed="true">
+      <connection id="89d6c38a-377c-40ef-ab6d-37a6ece6e941" active="true" signed="true">
         <database>
           <name value="MySQL Connection" />
           <description value="" />
@@ -89,10 +82,10 @@
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="3306" />
-          <database value="javafx" />
+          <database value="test1" />
           <type value="USER_PASSWORD" />
           <user value="root" />
-          <deprecated-pwd value="cm9vdA==" />
+          <deprecated-pwd value="MTIzMTIz" />
         </database>
         <properties>
           <auto-commit value="false" />

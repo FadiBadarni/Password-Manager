@@ -1,7 +1,5 @@
 package classes.project;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BlurType;
@@ -10,30 +8,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import javafx.stage.Modality;
-
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class CustomerCard extends Pane {
     protected final ImageView photo;
     protected final Label appName;
     protected final Label username;
 
-    public CustomerCard(String appName, String UserName, String icon,String link) {
+    public CustomerCard(String appName, String UserName, String icon,String link,String password,FXMLDocumentController fx) {
 
         photo = new ImageView();
         this.appName = new Label();
         username = new Label();
 
      //   setId(Id + "");
-        setPrefHeight(240.0);
-        setPrefWidth(240.0);
+        setPrefHeight(180.0);
+        setPrefWidth(180.0);
         setStyle("-fx-background-color:#FFF; -fx-border-radius: 10px; -fx-background-radius: 10px;");
 
         DropShadow dropShadow = new DropShadow();
@@ -71,11 +60,8 @@ public class CustomerCard extends Pane {
 
 
         setOnMouseClicked(e -> {
-            try {
-                Desktop.getDesktop().browse(new URL(link).toURI());
-            } catch (IOException | URISyntaxException a) {
-                a.printStackTrace();
-            }
+            fx.show(appName,UserName,icon,link,password);
+//
         });
 
         getChildren().addAll(photo, this.appName, username);
