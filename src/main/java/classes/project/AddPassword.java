@@ -59,12 +59,10 @@ public class AddPassword implements Initializable {
             psInsert.setString(5, DatatypeConverter.printHexBinary(cipherText));
             psInsert.setString(6, do_RSADecryption(cipherText, keypair.getPublic()));
 
-
-
             psInsert.executeUpdate();
 
-            Main m = new Main();
-            m.changeScene("Home.fxml");
+//            Main m = new Main();
+//            m.changeScene("Home.fxml");
 
         } catch (SQLException e) {
             e.printStackTrace();

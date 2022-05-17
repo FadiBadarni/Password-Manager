@@ -46,5 +46,6 @@
             <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </TextField>
+      <Button layoutX="747.0" layoutY="403.0" mnemonicParsing="false" onAction="#gologinButton_Click" text="Button" />
    </children>
 </Pane>

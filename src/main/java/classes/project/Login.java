@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Login {
+public class Login{
     @FXML
     public TextField usernameField, errorField;
     @FXML
@@ -35,16 +35,6 @@ public class Login {
 
     @FXML
     void loginButton_Click(ActionEvent event) throws IOException, NoSuchAlgorithmException, SQLException {
-//        String password = getPassword();
-//        updateLoginUsernamesAndPasswords();
-//        String encryptedPassword = encryptor.encryptString(passwordField.getText());
-//
-//        if (encryptor.encryptString(password).equals(encryptedPassword)) {
-//            Main m = new Main();
-//            m.changeScene("Home.fxml");
-//        } else {
-//            System.out.println("Error login!");
-//        }
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -60,7 +50,6 @@ public class Login {
             } else {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
-                    System.out.println(resultSet.getString("password"));
                     if (retrievedPassword.equals(encryptor.encryptString(passwordField.getText()))) {
                         Main m = new Main();
                         m.changeScene("Home.fxml");
@@ -129,4 +118,19 @@ public class Login {
     }
 
 
+    public void gologinButton_Click(ActionEvent actionEvent) throws IOException {
+        if (usernameField.getText().length() != 0) {
+
+            Node node = (Node) actionEvent.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            try {
+                stage.setUserData(usernameField.getText());
+                 Main m = new Main();
+                 m.changeScene("FXMLDocument.fxml");
+            } catch (IOException e) {
+                System.err.printf("Error: %s%n", e.getMessage());
+            }
+        }
+
+    }
 }
