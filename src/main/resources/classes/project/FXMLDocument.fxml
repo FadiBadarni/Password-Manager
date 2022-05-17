@@ -4,21 +4,69 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.FXMLDocumentController">
+<AnchorPane id="AnchorPane" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="645.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.FXMLDocumentController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d47a1" height="41.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1100.0" />
-        <ScrollPane layoutX="4.0" layoutY="44.0" prefHeight="570.0" prefWidth="1092.0">
-            <GridPane fx:id="cardHolder" layoutX="12.0" layoutY="109.0"/>
+        <ScrollPane layoutX="12.0" layoutY="46.0" prefHeight="570.0" prefWidth="1071.0">
+            <GridPane fx:id="cardHolder" layoutX="12.0" layoutY="109.0" />
         </ScrollPane>
-      <Text fill="WHITE" layoutX="37.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="App Name">
+      <Text fill="WHITE" layoutX="69.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="addBT" layoutX="1023.0" layoutY="575.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="52.0" prefWidth="61.0" text="Add" />
+      <Button fx:id="addBT" layoutX="1004.0" layoutY="553.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="79.0" prefWidth="80.0" text="+">
+         <font>
+            <Font size="37.0" />
+         </font></Button>
+      <Button fx:id="Close" layoutX="1024.0" layoutY="-18.0" mnemonicParsing="false" onAction="#onCloseButtonClick" text="X" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7966903073286052" startX="0.5460992907801419" startY="0.46099290780141844">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Button fx:id="back" layoutX="-26.0" layoutY="-34.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="97.0" prefWidth="103.0" text="&lt;" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="38.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7966903073286052" startX="0.5460992907801419" startY="0.46099290780141844">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
     </children>
 </AnchorPane>
