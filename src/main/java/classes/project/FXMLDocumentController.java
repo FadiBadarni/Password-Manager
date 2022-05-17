@@ -5,37 +5,29 @@
  */
 package classes.project;
 
-import com.opencsv.exceptions.CsvValidationException;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import javax.xml.bind.DatatypeConverter;
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.KeyPair;
-import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static classes.project.Asymmetric.*;
@@ -55,6 +47,8 @@ public class FXMLDocumentController implements Initializable {
     private Text username;
     @FXML
     private GridPane cardHolder;
+    @FXML
+    private Pane addPane;
     private static Stage stg;
     ObservableList<CustomerCard> list = FXCollections.observableArrayList();
 
@@ -66,7 +60,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+        addPane.setVisible(false);
         double r = 40;
         addBT.setShape(new Circle(r));
         addBT.setMinSize(2 * r, 2 * r);
