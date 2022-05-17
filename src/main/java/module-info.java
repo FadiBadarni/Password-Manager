@@ -16,6 +16,7 @@ module classes.project {
     requires java.sql;
     requires AnimateFX;
     requires mysql.connector.java;
+    requires jaxb.api;
 
     opens classes.project to javafx.fxml;
     exports classes.project;

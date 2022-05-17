@@ -26,6 +26,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 
 public class FXMLDocumentController implements Initializable {
@@ -52,11 +53,17 @@ public class FXMLDocumentController implements Initializable {
         back.setStyle("-fx-background-color: rgba(255,255,255,0)");
 
 
-        list.add(new CustomerCard("Gmail", "Username", x + "gmail.png", "https:www.gmail.com/"));
-        list.add(new CustomerCard("Facebook", "9654645630", x + "facebook.png", "https://www.facebook.com/"));
-        list.add(new CustomerCard("Skype", "9654645630", x + "skype.png", "https:www.skype.com/"));
-        list.add(new CustomerCard("instagram", "bfgjg", x + "instagram.png", "https://www.instagram.com/"));
-        list.add(new CustomerCard("tumblr", "9654645630", x + "tumblr.png", "https://www.tumblr.com/"));
+        try {
+            HashSet<String[]> data=  update("fadii");
+            for(String[] s:data)
+            {
+                list.add(new CustomerCard( s[0], s[4], x+"gmail.png",s[1]));
+                System.out.println("Test");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 
         cardHolder.setAlignment(Pos.CENTER);
@@ -65,6 +72,12 @@ public class FXMLDocumentController implements Initializable {
         cardHolder.setStyle("-fx-padding:10px;-fx-border-color:transparent");
 
         onSearch();
+
+        try {
+            update("fadii");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -98,55 +111,48 @@ public class FXMLDocumentController implements Initializable {
         System.exit(0);
     }
 
-    public void loadData(ActionEvent actionEvent) throws IOException, CsvValidationException, NoSuchAlgorithmException, SQLException {
-        Encryptor encryptor = new Encryptor();
+    public HashSet<String[]> update(String user) throws SQLException {
+
+        HashSet<String[]> hashSet = new HashSet<>();
+        String[] s = new String[5];
         Connection connection = null;
-        PreparedStatement psInsert = null;
-        PreparedStatement psCheckUserExists = null;
+        PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root","root");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE Username = ?");
-            psCheckUserExists.setString(1, usernameField.getText());
-            resultSet = psCheckUserExists.executeQuery();
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "root");
+            preparedStatement = connection.prepareStatement("SELECT * FROM  credentials WHERE username = ?");
+            preparedStatement.setString(1, "fadii");
+            resultSet = preparedStatement.executeQuery();
 
-            if(resultSet.isBeforeFirst()){
-                errorField.setText("User Already Exists");
+            if (!resultSet.isBeforeFirst()) {
+                //errorField.setText("Incorrect Credentials.");
+            } else {
+                while (resultSet.next()) {
+
+                    s[0] = resultSet.getString("application_name");
+                    s[1] = resultSet.getString("login_url");
+                    s[2] = resultSet.getString("password");
+                    s[3] = resultSet.getString("password_hint");
+                    s[4] = resultSet.getString("username");
+                    hashSet.add(s);
+                }
+
             }
-            else{
-                psInsert = connection.prepareStatement("INSERT INTO users " +
-                        "(First_Name, Last_Name, Username, Email, Password) " +
-                        "VALUES (?, ?, ?, ?, ?)");
 
-                psInsert.setString(1,firstnameField.getText());
-                psInsert.setString(2,lastnameField.getText());
-                psInsert.setString(3,usernameField.getText());
-                psInsert.setString(4,emailField.getText());
-                psInsert.setString(5,encryptor.encryptString(passwordField.getText()));
-
-                psInsert.executeUpdate();
-
-
-
-                Main m = new Main();
-                m.changeScene("Home.fxml");
-            }
-        }catch(SQLException e){
-            e.printStackTrace();
-        }finally{
-            if(resultSet != null){
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (resultSet != null) {
                 resultSet.close();
             }
-            if(psCheckUserExists != null){
-                psCheckUserExists.close();
+            if (preparedStatement != null) {
+                preparedStatement.close();
             }
-            if(psInsert != null){
-                psInsert.close();
-            }
-            if(connection != null){
+            if (connection != null) {
                 connection.close();
             }
         }
+        return hashSet;
     }
 
     public void panePressed(MouseEvent mouseEvent) {
