@@ -229,9 +229,11 @@ public class FXMLDocumentController implements Initializable {
 
             try {
                 list.clear();
+                int i=0;
                 HashSet<String[]> data = update(s);
-                for (String[] text : data)
-                    list.add(new CustomerCard(text[0], text[4], x + "gmail.png", text[1],text[2],this));
+                for (String[] text : data) {
+                    list.add(new CustomerCard(text[0], text[4], x + text[0]+".png", text[1], text[2], this));
+                }
                 onSearch();
             } catch (SQLException e) {
                 throw new RuntimeException(e);

@@ -30,11 +30,18 @@ public class CustomerCard extends Pane {
         dropShadow.setWidth(3);
         dropShadow.setBlurType(BlurType.TWO_PASS_BOX);
         setEffect(dropShadow);
-        photo.setImage(new Image(icon));
-        photo.setLayoutX(70);
+        try {
+            photo.setImage(new Image(icon));
+        }catch (RuntimeException e)
+        {
+            photo.setImage(new Image("C:\\Users\\abada\\IdeaProjects\\Password-Manager_2\\src\\main\\resources\\images\\ICON\\google-plus.png"));
+        }
+
+
+        photo.setLayoutX(30);
         photo.setLayoutY(10.0);
-        photo.setFitHeight(100);
-        photo.setFitWidth(100);
+        photo.setFitHeight(120);
+        photo.setFitWidth(120);
 //        photo.setRadius(45.0);
 //        photo.setStroke(javafx.scene.paint.Color.valueOf("#d7d7d7"));
 //        photo.setStrokeType(javafx.scene.shape.StrokeType.INSIDE);
