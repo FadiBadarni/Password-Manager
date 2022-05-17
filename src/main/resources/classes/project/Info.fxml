@@ -5,6 +5,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="622.0" prefWidth="600.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Info">
@@ -39,10 +42,26 @@
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="165.0" layoutY="297.0" text="Mrs. Alona Kotzi" textFill="WHITE">
+      <Label layoutX="165.0" layoutY="297.0" text="Mrs. Alona Kotzi">
          <font>
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.43719297647476196" green="0.5388771891593933" blue="0.6631578803062439" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8570370078086853" green="0.8716679811477661" blue="0.9368420839309692" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Label layoutX="108.0" layoutY="240.0" text="Project Moderator" textFill="WHITE">
          <font>
@@ -54,9 +73,9 @@
             <Image url="@../../images/ezgif-5-73f5f3225c-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button fx:id="exitButton" layoutX="270.0" layoutY="425.0" mnemonicParsing="false" onAction="#exitButton_Click" prefHeight="34.0" prefWidth="60.0" text="Exit">
+      <Button fx:id="exitButton" layoutX="257.0" layoutY="415.0" mnemonicParsing="false" onAction="#exitButton_Click" prefHeight="46.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="EXIT">
          <font>
-            <Font name="Berlin Sans FB" size="18.0" />
+            <Font name="Berlin Sans FB" size="26.0" />
          </font>
       </Button>
    </children>

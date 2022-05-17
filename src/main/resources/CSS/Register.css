@@ -15,3 +15,26 @@
 .errorLabel{
     -fx-text-fill: red;
 }
+.labels{
+    -fx-border-color: transparent transparent #44c2e5 transparent;
+    -fx-border-width: 3px;
+    -fx-background-color: transparent;
+    -fx-text-fill: rgb(14, 231, 238);
+    -fx-font-family: "Berlin Sans FB";
+    -fx-font-size: 16px;
+}
+.labels:focused {
+    -fx-content-display: top;
+    -fx-border-insets: 2 0 0 0;
+    -fx-border-width: 2;
+}
+.returnButton{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+.returnButton:hover{
+    -fx-cursor: hand;
+    -fx-text-fill: red;
+}

@@ -18,80 +18,12 @@
             <Image url="@../../images/mainBG.png" />
          </image>
       </ImageView>
-      <Label layoutX="60.0" layoutY="91.0" text="Welcome To Our Password Manager" textFill="WHITE">
-         <font>
-            <Font name="Berlin Sans FB" size="34.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="174.0" fitWidth="194.0" layoutX="41.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="236.0" fitWidth="382.0" layoutX="14.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/lock.png" />
+            <Image url="@../../images/dd121d878374723ae271141daa32f471-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button fx:id="loginButton" layoutX="217.0" layoutY="188.0" mnemonicParsing="false" onAction="#loginButton_Click" prefHeight="103.0" prefWidth="236.0" style="-fx-background-color: transparent;" styleClass="loginButton" text="LOG IN">
-         <font>
-            <Font name="System Bold" size="49.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.5098039507865906" green="0.5058823823928833" blue="0.6313725709915161" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.325411319732666" green="0.3209356665611267" blue="0.5894736647605896" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Button>
-      <Button fx:id="aboutButton" layoutX="461.0" layoutY="480.0" mnemonicParsing="false" onAction="#aboutButton_Click" prefHeight="103.0" prefWidth="236.0" style="-fx-background-color: transparent;" styleClass="aboutButton" text="ABOUT">
-         <font>
-            <Font name="System Bold" size="49.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.5098039507865906" green="0.5058823823928833" blue="0.6313725709915161" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.325411319732666" green="0.3209356665611267" blue="0.5894736647605896" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Button>
-      <Button fx:id="registerButton" layoutX="420.0" layoutY="291.0" mnemonicParsing="false" onAction="#registerButton_Click" prefHeight="103.0" prefWidth="291.0" style="-fx-background-color: transparent;" styleClass="registerButton" text="REGISTER">
-         <font>
-            <Font name="System Bold" size="49.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.5098039507865906" green="0.5058823823928833" blue="0.6313725709915161" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.325411319732666" green="0.3209356665611267" blue="0.5894736647605896" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Button>
-      <Button fx:id="quitButton" layoutX="126.0" layoutY="435.0" mnemonicParsing="false" onAction="#quitButton_Click" prefHeight="103.0" prefWidth="188.0" style="-fx-background-color: transparent;" styleClass="quitButton" text="QUIT">
+      <Button fx:id="quitButton" layoutX="109.0" layoutY="439.0" mnemonicParsing="false" onAction="#quitButton_Click" prefHeight="103.0" prefWidth="188.0" style="-fx-background-color: transparent;" styleClass="quitButton" text="QUIT">
          <font>
             <Font name="System Bold" size="49.0" />
          </font>
@@ -112,5 +44,109 @@
             </RadialGradient>
          </textFill>
       </Button>
+      <ImageView fitHeight="236.0" fitWidth="382.0" layoutX="333.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../../images/dd121d878374723ae271141daa32f471-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="236.0" fitWidth="382.0" layoutX="477.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../../images/dd121d878374723ae271141daa32f471-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="registerButton" layoutX="548.0" layoutY="170.0" mnemonicParsing="false" onAction="#registerButton_Click" prefHeight="103.0" prefWidth="236.0" style="-fx-background-color: transparent;" styleClass="registerButton" text="REGISTER">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5098039507865906" green="0.5058823823928833" blue="0.6313725709915161" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.325411319732666" green="0.3209356665611267" blue="0.5894736647605896" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <ImageView fitHeight="236.0" fitWidth="382.0" layoutX="83.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/dd121d878374723ae271141daa32f471-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="loginButton" layoutX="402.0" layoutY="303.0" mnemonicParsing="false" onAction="#loginButton_Click" prefHeight="103.0" prefWidth="236.0" style="-fx-background-color: transparent;" styleClass="loginButton" text="LOG IN">
+         <font>
+            <Font name="System Bold" size="49.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5098039507865906" green="0.5058823823928833" blue="0.6313725709915161" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.325411319732666" green="0.3209356665611267" blue="0.5894736647605896" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Button fx:id="aboutButton" layoutX="154.0" layoutY="291.0" mnemonicParsing="false" onAction="#aboutButton_Click" prefHeight="103.0" prefWidth="236.0" style="-fx-background-color: transparent;" styleClass="aboutButton" text="ABOUT">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5098039507865906" green="0.5058823823928833" blue="0.6313725709915161" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.325411319732666" green="0.3209356665611267" blue="0.5894736647605896" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <ImageView fitHeight="161.0" fitWidth="156.0" layoutX="700.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/d0a909f57693fd684b3c2b5e15a731b6-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="93.0" layoutY="82.0" text="Password Manager">
+         <font>
+            <Font name="Berlin Sans FB" size="39.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3292865455150604" green="0.31438595056533813" blue="0.4421052634716034" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.20140351355075836" green="0.4707602262496948" blue="0.6631578803062439" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
    </children>
 </Pane>

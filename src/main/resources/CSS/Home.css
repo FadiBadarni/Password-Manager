@@ -1,21 +1,12 @@
 
-
-
-
 .sideBarButtons{
     -fx-background-color:transparent;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
     -fx-text-fill: #000000;
-    -fx-padding: 10 20 10 20;
-    -fx-font-family: "Berlin Sans FB";
-    -fx-font-size: 28px;
 
 }
 .sideBarButtons:hover{
     -fx-cursor: hand;
-    -fx-padding: 8 15 15 15;
-    -fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0;
-    -fx-background-radius: 8;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
     -fx-text-fill: #ffffff;
 
