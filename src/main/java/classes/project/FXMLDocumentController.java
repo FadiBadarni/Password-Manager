@@ -78,7 +78,7 @@ public class FXMLDocumentController implements Initializable {
 
     String x = "C:\\Users\\abada\\IdeaProjects\\Password-Manager_2\\src\\main\\resources\\images\\ICON\\";
 
-    String[] icon={"facebook.png","gmail.com","instagram.png"};
+    String[] icon={"facebook.png","gmail.png","instagram.png"};
 
     public FXMLDocumentController() throws Exception {
     }
@@ -133,7 +133,7 @@ public class FXMLDocumentController implements Initializable {
         cardHolder1.setStyle("-fx-padding:10px;-fx-border-color:transparent");
         
         for(String s:icon)
-            list2.add(new CustomerList(s.replace(".png",""),"C:\\Users\\abada\\IdeaProjects\\Password-Manager_2\\src\\main\\resources\\images\\ICON\\google-plus.png",this));
+            list2.add(new CustomerList(s.replace(".png",""),x+s,this));
         cardHolder1.getChildren().clear();
         int count = 0, i = 0;
         while (count < list2.stream().count()) {
