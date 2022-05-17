@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Login{
+public class Login {
     @FXML
     public TextField usernameField, errorField;
     @FXML
@@ -45,6 +45,7 @@ public class Login{
 //        } else {
 //            System.out.println("Error login!");
 //        }
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -59,6 +60,7 @@ public class Login{
             } else {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
+                    System.out.println(resultSet.getString("password"));
                     if (retrievedPassword.equals(encryptor.encryptString(passwordField.getText()))) {
                         Main m = new Main();
                         m.changeScene("Home.fxml");
