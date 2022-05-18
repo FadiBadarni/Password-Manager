@@ -70,7 +70,7 @@
       </Label>
       <ImageView fitHeight="60.0" fitWidth="63.0" layoutX="109.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/ezgif-5-73f5f3225c-removebg-preview.png" />
+            <Image url="@../../images/Alona.png" />
          </image>
       </ImageView>
       <Button fx:id="exitButton" layoutX="257.0" layoutY="415.0" mnemonicParsing="false" onAction="#exitButton_Click" prefHeight="46.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="EXIT">

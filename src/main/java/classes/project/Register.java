@@ -35,7 +35,7 @@ public class Register implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Image img = null, img2;
-        img = new Image(new File("src/main/resources/images/aqefsfh.png").toURI().toString());
+        img = new Image(new File("src/main/resources/images/ViewPasswordEye.png").toURI().toString());
         img2 = new Image(new File("src/main/resources/images/hidePasswordIcon.png").toURI().toString());
         ImageView view = new ImageView(img);
         ImageView view2 = new ImageView(img2);
@@ -62,13 +62,10 @@ public class Register implements Initializable {
             psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE Username = ?");
             psCheckUserExists.setString(1, usernameField.getText());
             resultSet = psCheckUserExists.executeQuery();
-
             if (resultSet.isBeforeFirst()) {
-                errorField.setText("User Already Exists");
-            } else {
-                psInsert = connection.prepareStatement("INSERT INTO users " +
-                        "(First_Name, Last_Name, Username, Email, Password) " +
-                        "VALUES (?, ?, ?, ?, ?)");
+                errorField.setText("Username Already Exists");
+            } else if (checkField(firstnameField) && checkField(lastnameField) && checkField(emailField) && checkField(passwordField) && Objects.equals(confirmEmailField.getText(), emailField.getText())) {
+                psInsert = connection.prepareStatement("INSERT INTO users " + "(First_Name, Last_Name, Username, Email, Password) " + "VALUES (?, ?, ?, ?, ?)");
 
                 psInsert.setString(1, firstnameField.getText());
                 psInsert.setString(2, lastnameField.getText());
@@ -78,8 +75,11 @@ public class Register implements Initializable {
 
                 psInsert.executeUpdate();
 
+                Node node = (Node) actionEvent.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.setUserData(usernameField.getText());
                 Main m = new Main();
-                m.changeScene("FXMLDocument.fxml");
+                m.changeScene("Home.fxml");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -96,6 +96,17 @@ public class Register implements Initializable {
             if (connection != null) {
                 connection.close();
             }
+        }
+    }
+
+    public boolean checkField(TextField field) {
+        if (field.getText().length() == 0) {
+            field.setStyle("-fx-border-color: red ; -fx-border-width: 2px");
+            new animatefx.animation.RubberBand(field).play();
+            return false;
+        } else {
+            field.setStyle(null);
+            return true;
         }
     }
 

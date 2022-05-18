@@ -14,12 +14,12 @@
    <children>
       <ImageView fitHeight="512.0" fitWidth="775.0" layoutX="70.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/asdas.png" />
+            <Image url="@../../images/BackGround.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="176.0" fitWidth="171.0" layoutX="70.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/667d142f6dade2d70a87f1bd95a57223-removebg-preview.png" />
+            <Image url="@../../images/TopSecret.png" />
          </image>
       </ImageView>
       <Button fx:id="registerButton" layoutX="390.0" layoutY="400.0" mnemonicParsing="false" onAction="#registerButton_Click" prefHeight="48.0" prefWidth="146.0" styleClass="registerButton" stylesheets="@../../CSS/Register.css" text="REGISTER" textFill="WHITE">

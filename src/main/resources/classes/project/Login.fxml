@@ -13,16 +13,16 @@
    <children>
       <ImageView fitHeight="347.0" fitWidth="468.0" layoutX="63.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/a265799cae1d8bf62418ea77223307f8-modified.png" />
+            <Image url="@../../images/LoginBackground1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="452.0" fitWidth="598.0" layoutX="402.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
          <image>
-            <Image url="@../../images/bf00974084a687b3c288567e596f6efa-modified.png" />
+            <Image url="@../../images/LoginBackground2.png" />
          </image>
       </ImageView>
-      <TextField fx:id="usernameField" layoutX="482.0" layoutY="232.0" prefHeight="31.0" prefWidth="231.0" promptText="username" styleClass="labels" stylesheets="@../../CSS/Register.css" />
-      <PasswordField fx:id="passwordField" layoutX="482.0" layoutY="274.0" prefHeight="31.0" prefWidth="231.0" promptText="password" styleClass="labels" stylesheets="@../../CSS/Register.css" />
+      <TextField fx:id="usernameField" layoutX="517.0" layoutY="224.0" prefHeight="31.0" prefWidth="231.0" promptText="username" styleClass="labels" stylesheets="@../../CSS/Register.css" />
+      <PasswordField fx:id="passwordField" layoutX="517.0" layoutY="274.0" prefHeight="31.0" prefWidth="231.0" promptText="password" styleClass="labels" stylesheets="@../../CSS/Register.css" />
       <Button layoutX="517.0" layoutY="354.0" onAction="#loginButton_Click" prefHeight="39.0" prefWidth="149.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="SIGN IN" textFill="#dcdcdc">
          <font>
             <Font name="Berlin Sans FB" size="27.0" />
@@ -46,6 +46,5 @@
             <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </TextField>
-      <Button layoutX="747.0" layoutY="403.0" mnemonicParsing="false" onAction="#gologinButton_Click" text="Button" />
    </children>
 </Pane>

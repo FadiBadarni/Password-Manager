@@ -15,8 +15,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Main extends Application {
-
     private static Stage stg;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -41,6 +41,7 @@ public class Main extends Application {
         stg.getScene().setRoot(pane);
         stg.sizeToScene();
     }
+
     public void loginButton_Click(ActionEvent actionEvent) throws IOException {
         Main m = new Main();
         m.changeScene("Login.fxml");
@@ -64,8 +65,9 @@ public class Main extends Application {
 
     public void quitButton_Click(ActionEvent actionEvent) throws IOException {
         Main m = new Main();
-        m.changeScene("FXMLDocument.fxml");
+        m.changeScene("Home.fxml");
     }
+
     public void panePressed(MouseEvent mouseEvent) {
         stg = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         Delta.x = stg.getX() - mouseEvent.getScreenX();

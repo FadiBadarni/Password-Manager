@@ -17,6 +17,7 @@ public class Info {
         Delta.x = stg.getX() - mouseEvent.getScreenX();
         Delta.y = stg.getY() - mouseEvent.getScreenY();
     }
+
     public void paneDragged(MouseEvent mouseEvent) {
         stg = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stg.setX(Delta.x + mouseEvent.getScreenX());

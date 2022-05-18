@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMouseMoved="#onMouseMoved" onMousePressed="#panePressed" prefHeight="639.0" prefWidth="1072.0" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Home">
+   <children>
+      <ImageView fitHeight="736.0" fitWidth="1104.0" layoutX="-16.0" layoutY="-39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/BackGround.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="145.0" layoutY="20.0" text="Nice To See You!  " textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB" size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="-15.0" layoutY="-25.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="97.0" prefWidth="103.0" style="-fx-cursor: hand; -fx-background-color: transparent;" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7966903073286052" startX="0.5460992907801419" startY="0.46099290780141844">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Pane fx:id="show_pane" layoutY="63.0" prefHeight="576.0" prefWidth="311.0">
+         <children>
+            <Label fx:id="nameLabel" layoutX="95.0" layoutY="165.0" text="name" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="232.0" text="Username" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Label>
+            <Label layoutX="22.0" layoutY="272.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Label>
+            <ImageView fx:id="icon_show" fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="24.0" layoutY="312.0" text="Password Hint" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Label>
+            <TextField fx:id="username_show" layoutX="115.0" layoutY="230.0" />
+            <TextField fx:id="password_show" layoutX="115.0" layoutY="270.0" />
+            <TextField fx:id="link_show" layoutX="115.0" layoutY="310.0" />
+         </children>
+      </Pane>
+      <ScrollPane fx:id="listPane" layoutY="47.0" prefHeight="592.0" prefWidth="1072.0" styleClass="scrollPane" stylesheets="@../../CSS/Home.css">
+         <content>
+            <GridPane fx:id="cardHolder" layoutX="12.0" layoutY="109.0">
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Text fx:id="username" fill="WHITE" layoutX="348.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="375.316650390625">
+         <font>
+            <Font name="Berlin Sans FB" size="32.0" />
+         </font>
+      </Text>
+      <Button fx:id="addBT" layoutX="940.0" layoutY="510.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="79.0" prefWidth="80.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeButton" layoutX="973.0" layoutY="-11.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="73.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-cursor: hand;" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="42.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7966903073286052" startX="0.5460992907801419" startY="0.46099290780141844">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Pane fx:id="addPane" layoutX="-1.0" layoutY="63.0" prefHeight="583.0" prefWidth="311.0">
+         <children>
+            <ImageView fitHeight="447.0" fitWidth="724.0" layoutX="-191.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+               <image>
+                  <Image url="@../../images/CardOverLayFrame.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="openLink" layoutX="94.0" layoutY="456.0" mnemonicParsing="false" onAction="#onOpenLinkButtonClick" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="Open Browser">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="edit" layoutX="33.0" layoutY="426.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="35.0" prefWidth="73.0" style="-fx-background-color: transparent;" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="EDIT" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
+               </font>
+            </Button>
+            <Label layoutX="68.0" layoutY="-2.0" text="ADD CREDENTIALS" textFill="#c1d2de">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="87.0" layoutY="72.0" text="Application Name" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="123.0" text="User Name" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="170.0" prefHeight="21.0" prefWidth="88.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="307.0" prefHeight="21.0" prefWidth="179.0" text="Secure Password Hint" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" layoutX="87.0" layoutY="80.0" prefHeight="35.0" prefWidth="149.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
+            <TextField fx:id="passwordField" layoutX="69.0" layoutY="180.0" prefHeight="35.0" prefWidth="199.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
+            <TextField fx:id="loginUrlField" layoutX="48.0" layoutY="262.0" prefHeight="35.0" prefWidth="199.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
+            <TextArea fx:id="passwordHintField" layoutX="51.0" layoutY="339.0" prefHeight="27.0" prefWidth="213.0" promptText="e.g First Dog Name" />
+            <Label layoutX="50.0" layoutY="252.0" text="Login URL" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" layoutX="69.0" layoutY="132.0" prefHeight="21.0" prefWidth="157.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
+            <Button fx:id="saveButton" layoutX="118.0" layoutY="407.0" mnemonicParsing="false" onAction="#saveButton_Click" prefHeight="39.0" prefWidth="80.0" style="-fx-background-color: transparent;" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="SAVE" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="generateButton" layoutX="94.0" layoutY="220.0" mnemonicParsing="false" onAction="#generateButton_Click" prefHeight="20.0" prefWidth="130.0" styleClass="generateButton" stylesheets="@../../CSS/Register.css" text="GeneratePassword" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="11.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</Pane>

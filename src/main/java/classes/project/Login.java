@@ -44,8 +44,15 @@ public class Login {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(encryptor.encryptString(passwordField.getText()))) {
-                        Main m = new Main();
-                        m.changeScene("FXMLDocument.fxml");
+                        Node node = (Node) event.getSource();
+                        Stage stage = (Stage) node.getScene().getWindow();
+                        try {
+                            stage.setUserData(usernameField.getText());
+                            Main m = new Main();
+                            m.changeScene("Home.fxml");
+                        } catch (IOException e) {
+                            System.err.printf("Error: %s%n", e.getMessage());
+                        }
                     } else {
                         errorField.setText("Passwords Mismatch.");
                     }
@@ -87,15 +94,7 @@ public class Login {
     public void gologinButton_Click(ActionEvent actionEvent) throws IOException {
         if (usernameField.getText().length() != 0) {
 
-            Node node = (Node) actionEvent.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            try {
-                stage.setUserData(usernameField.getText());
-                Main m = new Main();
-                m.changeScene("FXMLDocument.fxml");
-            } catch (IOException e) {
-                System.err.printf("Error: %s%n", e.getMessage());
-            }
+
         }
 
     }
