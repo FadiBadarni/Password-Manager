@@ -1,5 +1,9 @@
 package classes.project;
 
+import animatefx.animation.*;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -20,6 +23,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
@@ -32,19 +36,18 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Home implements Initializable {
     public Pane addPane, mainPane, show_pane;
     public ScrollPane listPane;
-    public ImageView icon_show;
-    public Button openLink, edit, closeButton, addBT, backButton;
+    public ImageView icon_show, image;
+    public Button openBrowserButton, editButton, closeButton, addBT, backButton, saveEditButton;
     @FXML
     private javafx.scene.control.TextArea passwordHintField;
     @FXML
-    private javafx.scene.control.TextField nameField, usernameField, passwordField, loginUrlField, username_show, password_show, link_show;
+    private javafx.scene.control.TextField nameField, usernameField, passwordField, username_show, password_show, hintField;
     @FXML
     private Label nameLabel;
     @FXML
@@ -55,9 +58,6 @@ public class Home implements Initializable {
     ObservableList<ApplicationCard> list = FXCollections.observableArrayList();
     boolean refresh = true;
     private String link;
-    //String x = "C:\\Users\\97252\\Desktop\\Password-Manager\\src\\main\\resources\\images\\Icons";
-    String[] icon = {"Facebook.png", "gmail.png", "Instagram.png"};
-    String[] applicationNames = {"Youtube", "Facebook", "Twitter", "Instagram", "LinkedIn", "Pinterest"};
 
     public Home() {
 
@@ -65,36 +65,53 @@ public class Home implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Image img;
-        img = new Image(new File("src/main/resources/images/backArrow.png").toURI().toString());
-        ImageView view = new ImageView(img);
-        view.setFitHeight(50);
-        view.setPreserveRatio(true);
-        backButton.setGraphic(view);
-        Image img2;
-        img2 = new Image(new File("src/main/resources/images/plusIcon.png").toURI().toString());
-        ImageView view2 = new ImageView(img2);
-        view2.setFitHeight(100);
-        view2.setPreserveRatio(true);
-        addBT.setGraphic(view2);
-        Image img3 = new Image(new File("src/main/resources/images/exitIcon.png").toURI().toString());
-        ImageView view3 = new ImageView(img3);
-        view3.setFitHeight(60);
-        view3.setPreserveRatio(true);
-        closeButton.setGraphic(view3);
+        RotateTransition rt = new RotateTransition(Duration.millis(6500), image);
+        rt.setByAngle(360);
+        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setInterpolator(Interpolator.LINEAR);
+        rt.play();
 
-        closeButton.setStyle("-fx-background-color: rgba(255,255,255,0)");
-        backButton.setStyle("-fx-background-color: rgba(255,255,255,0)");
-
-        cardHolder.setAlignment(Pos.CENTER);
-        cardHolder.setVgap(30.00);
-        cardHolder.setHgap(30.00);
-        cardHolder.setStyle("-fx-padding:10px;-fx-border-color:transparent");
         addPane.setVisible(false);
         show_pane.setVisible(false);
         listPane.setVisible(true);
+        editButton.setVisible(false);
+        openBrowserButton.setVisible(false);
+        saveEditButton.setVisible(false);
 
-        onSearch();
+        AnimationFX animateExit = new RotateInDownRight(mainPane);
+        animateExit.setOnFinished(actionEvent2 -> {
+            Image img;
+            img = new Image(new File("src/main/resources/images/backArrow.png").toURI().toString());
+            ImageView view = new ImageView(img);
+            view.setFitHeight(50);
+            view.setPreserveRatio(true);
+            backButton.setGraphic(view);
+            Image img2;
+            img2 = new Image(new File("src/main/resources/images/plusIcon.png").toURI().toString());
+            ImageView view2 = new ImageView(img2);
+            view2.setFitHeight(100);
+            view2.setPreserveRatio(true);
+            addBT.setGraphic(view2);
+            Image img3 = new Image(new File("src/main/resources/images/exitIcon.png").toURI().toString());
+            ImageView view3 = new ImageView(img3);
+            view3.setFitHeight(60);
+            view3.setPreserveRatio(true);
+            closeButton.setGraphic(view3);
+
+            closeButton.setStyle("-fx-background-color: rgba(255,255,255,0)");
+            backButton.setStyle("-fx-background-color: rgba(255,255,255,0)");
+
+            cardHolder.setAlignment(Pos.CENTER);
+            cardHolder.setVgap(30.00);
+            cardHolder.setHgap(30.00);
+            cardHolder.setStyle("-fx-padding:10px;-fx-border-color:transparent");
+
+
+            onSearch();
+        });
+        animateExit.play();
+
+
     }
 
     @FXML
@@ -102,6 +119,8 @@ public class Home implements Initializable {
         cardHolder.getChildren().clear();
         int count = 0, i = 0;
         while (count < list.stream().count()) {
+            AnimationFX animateCards = new JackInTheBox(cardHolder);
+            animateCards.play();
             for (int j = 0; j < 5; j++) {
                 cardHolder.add(list.get(count), j, i);
                 count++;
@@ -114,7 +133,7 @@ public class Home implements Initializable {
     public void onAddButtonClick(ActionEvent actionEvent) throws IOException {
         username_show.setDisable(true);
         password_show.setDisable(true);
-        link_show.setDisable(true);
+        hintField.setDisable(true);
         if (addPane.isVisible()) {
             listPane.setTranslateX(0);
             listPane.setScaleX(1);
@@ -141,12 +160,19 @@ public class Home implements Initializable {
             addBT.setGraphic(view2);
 
         }
+        AnimationFX animateAddButton = new Tada(addBT);
+        AnimationFX animateAddPane = new FadeIn(addPane);
         addPane.setVisible(!addPane.isVisible());
+        animateAddButton.play();
+        animateAddPane.play();
     }
 
     public void onCloseButtonClick(ActionEvent actionEvent) {
-        Platform.exit();
-        System.exit(0);
+        AnimationFX animateExit = new FadeOut(mainPane);
+        animateExit.setOnFinished(actionEvent2 -> {
+            System.exit(0);
+        });
+        animateExit.play();
     }
 
     public HashSet<String[]> update(String user) throws SQLException {
@@ -166,10 +192,9 @@ public class Home implements Initializable {
                 while (resultSet.next()) {
                     s = new String[5];
                     s[0] = resultSet.getString("application_name");
-                    s[1] = resultSet.getString("login_url");
-                    s[2] = resultSet.getString("password");
-                    s[3] = resultSet.getString("password_hint");
-                    s[4] = resultSet.getString("username");
+                    s[1] = resultSet.getString("password");
+                    s[2] = resultSet.getString("password_hint");
+                    s[3] = resultSet.getString("username");
                     hashSet.add(s);
                 }
             }
@@ -212,7 +237,7 @@ public class Home implements Initializable {
                 int i = 0;
                 HashSet<String[]> data = update(s);
                 for (String[] text : data) {
-                    list.add(new ApplicationCard(text[0], text[4], text[0] + ".png", text[1], text[2], this));
+                    list.add(new ApplicationCard(text[0], text[3], text[0] + ".png", text[2], text[1], this));
                 }
                 onSearch();
             } catch (SQLException | FileNotFoundException e) {
@@ -238,14 +263,13 @@ public class Home implements Initializable {
             alert.showAndWait();
         } else {
             String encryptedPassword = AES.encrypt(passwordField.getText());
-            try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "root"); PreparedStatement psInsert = connection.prepareStatement("INSERT INTO credentials " + "(application_name, username, password, login_url, password_hint, owner) " + "VALUES (?, ?, ?, ?, ?, ?)")) {
+            try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "root"); PreparedStatement psInsert = connection.prepareStatement("INSERT INTO credentials " + "(application_name, username, password, password_hint, owner) " + "VALUES (?, ?, ?, ?, ?)")) {
 
                 psInsert.setString(1, nameField.getText());
                 psInsert.setString(2, usernameField.getText());
                 psInsert.setString(3, encryptedPassword);
-                psInsert.setString(4, loginUrlField.getText());
-                psInsert.setString(5, passwordHintField.getText());
-                psInsert.setString(6, username.getText());
+                psInsert.setString(4, passwordHintField.getText());
+                psInsert.setString(5, username.getText());
 
                 psInsert.executeUpdate();
                 refresh = true;
@@ -256,22 +280,34 @@ public class Home implements Initializable {
         }
     }
 
-    public void show(String appName, String username, String icon, String link, String password) {
-        openLink.setVisible(true);
+    public void show(String appName, String username, String icon, String hint, String password) {
+        AnimationFX animateShowPane = new Tada(show_pane);
+        animateShowPane.play();
+        openBrowserButton.setVisible(true);
         if (show_pane.isVisible()) {
             listPane.setTranslateX(0);
             listPane.setScaleX(1);
             addPane.setVisible(false);
+
+            editButton.setVisible(false);
+            openBrowserButton.setVisible(false);
         } else {
             listPane.setScaleX(0.7);
             listPane.setTranslateX(170);
             addPane.setVisible(false);
+            username_show.setDisable(true);
+            password_show.setDisable(true);
+            hintField.setDisable(true);
         }
         show_pane.setVisible(!show_pane.isVisible());
+        editButton.setVisible(true);
+        openBrowserButton.setVisible(true);
 
         username_show.setText(username);
         password_show.setText(AES.decrypt(password));
         nameLabel.setText(appName);
+        hintField.setText(hint);
+
 
         icon = icon.substring(0, 1).toUpperCase() + icon.substring(1);
         File imageFile = new File("src/main/resources/images/Icons/" + icon);
@@ -281,21 +317,22 @@ public class Home implements Initializable {
         } catch (RuntimeException e) {
             icon_show.setImage(new Image("src/main/resources/images/Icons/locked.png"));
         }
-        link_show.setText(link);
-        this.link = link;
+        link = "www." + appName + ".com";
 
     }
 
     public void onOpenLinkButtonClick(ActionEvent actionEvent) {
         try {
-            Desktop.getDesktop().browse(new URL(link).toURI());
+            Desktop.getDesktop().browse(new URL("http://" + link).toURI());
         } catch (IOException | URISyntaxException a) {
             a.printStackTrace();
         }
     }
 
     public void onEditButtonClick(ActionEvent actionEvent) {
-
+        password_show.setDisable(false);
+        hintField.setDisable(false);
+        saveEditButton.setVisible(true);
     }
 
     public void onBackButtonClick(ActionEvent actionEvent) throws IOException {
@@ -316,5 +353,23 @@ public class Home implements Initializable {
         PasswordGenerator passGen = new PasswordGenerator();
         String password = passGen.generatePassword(randomNum * 4, SR, LCR, UCR, DR);
         passwordField.setText(password);
+    }
+
+
+    public void saveEditButton_Click(ActionEvent actionEvent) {
+        String encryptedPassword = AES.encrypt(password_show.getText());
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx", "root", "root"); PreparedStatement psInsert = connection.prepareStatement("UPDATE credentials SET password_hint = ?, password = ? WHERE username = ?")) {
+            psInsert.setString(1, hintField.getText());
+            psInsert.setString(2, encryptedPassword);
+            psInsert.setString(3, username_show.getText());
+
+            psInsert.executeUpdate();
+            refresh = true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        saveEditButton.setVisible(false);
     }
 }

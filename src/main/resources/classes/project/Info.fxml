@@ -10,14 +10,14 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="622.0" prefWidth="600.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Info">
+<Pane fx:id="aboutPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="622.0" prefWidth="600.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Info">
    <children>
       <ImageView fitHeight="594.0" fitWidth="389.0" layoutX="106.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/bginfo.png" />
          </image>
       </ImageView>
-      <Label layoutX="167.0" layoutY="42.0" text="Password Manager Project" textFill="WHITE">
+      <Label layoutX="167.0" layoutY="42.0" text="Password Manager Project" textFill="#ff5757">
          <font>
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
@@ -37,12 +37,12 @@
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="183.0" layoutY="564.0" text="Cyber Security Course" textFill="WHITE">
+      <Label layoutX="193.0" layoutY="562.0" text="Cyber Security Course" textFill="#ff7171">
          <font>
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="165.0" layoutY="297.0" text="Mrs. Alona Kotzi">
+      <Label fx:id="moderatorLabel" layoutX="165.0" layoutY="297.0" text="Mrs. Alona Kutsyy">
          <font>
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
@@ -68,12 +68,12 @@
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="60.0" fitWidth="63.0" layoutX="109.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="alonaImage" fitHeight="60.0" fitWidth="63.0" layoutX="109.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/Alona.png" />
          </image>
       </ImageView>
-      <Button fx:id="exitButton" layoutX="257.0" layoutY="415.0" mnemonicParsing="false" onAction="#exitButton_Click" prefHeight="46.0" prefWidth="84.0" style="-fx-background-color: transparent;" text="EXIT">
+      <Button fx:id="exitButton" layoutX="257.0" layoutY="415.0" mnemonicParsing="false" onAction="#exitButton_Click" prefHeight="46.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="EXIT">
          <font>
             <Font name="Berlin Sans FB" size="26.0" />
          </font>

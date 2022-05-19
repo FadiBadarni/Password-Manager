@@ -16,3 +16,14 @@
 .scroll-pane {
     -fx-background-color: transparent;
 }
+.clickButton{
+    -fx-background-color: rgba(171, 171, 171, 0.18);
+    -fx-effect: dropshadow(three-pass-box, rgba(55, 108, 222, 0.56), 5, 0.0, 0, 1);
+    -fx-text-fill: #af9f9f;
+
+}
+.clickButton:hover{
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+    -fx-text-fill: #ffffff;
+}

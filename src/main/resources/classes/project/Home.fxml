@@ -22,7 +22,7 @@
             <Image url="@../../images/BackGround.png" />
          </image>
       </ImageView>
-      <Label layoutX="145.0" layoutY="20.0" text="Nice To See You!  " textFill="WHITE">
+      <Label layoutX="145.0" layoutY="20.0" text="Nice To See You!  " textFill="#8995ff">
          <font>
             <Font name="Berlin Sans FB" size="28.0" />
          </font>
@@ -70,7 +70,22 @@
                </font></Label>
             <TextField fx:id="username_show" layoutX="115.0" layoutY="230.0" />
             <TextField fx:id="password_show" layoutX="115.0" layoutY="270.0" />
-            <TextField fx:id="link_show" layoutX="115.0" layoutY="310.0" />
+            <TextField fx:id="hintField" layoutX="115.0" layoutY="310.0" />
+            <Button fx:id="openBrowserButton" layoutX="110.0" layoutY="360.0" mnemonicParsing="false" onAction="#onOpenLinkButtonClick" style="-fx-background-color: transparent;" styleClass="clickButton" stylesheets="@../../CSS/Home.css" text="Open Browser" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="editButton" layoutX="10.0" layoutY="360.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="35.0" prefWidth="73.0" style="-fx-background-color: transparent;" styleClass="clickButton" stylesheets="@../../CSS/Home.css" text="EDIT" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="saveEditButton" layoutX="70.0" layoutY="420.0" mnemonicParsing="false" onAction="#saveEditButton_Click" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: transparent;" styleClass="clickButton" stylesheets="@../../CSS/Home.css" text="SAVE" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="22.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <ScrollPane fx:id="listPane" layoutY="47.0" prefHeight="592.0" prefWidth="1072.0" styleClass="scrollPane" stylesheets="@../../CSS/Home.css">
@@ -112,66 +127,55 @@
       </Button>
       <Pane fx:id="addPane" layoutX="-1.0" layoutY="63.0" prefHeight="583.0" prefWidth="311.0">
          <children>
-            <ImageView fitHeight="447.0" fitWidth="724.0" layoutX="-191.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+            <ImageView fitHeight="380.0" fitWidth="646.0" layoutX="-164.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
                <image>
-                  <Image url="@../../images/CardOverLayFrame.png" />
+                  <Image url="@../../images/registerBackgroundLogin.png" />
                </image>
             </ImageView>
-            <Button fx:id="openLink" layoutX="94.0" layoutY="456.0" mnemonicParsing="false" onAction="#onOpenLinkButtonClick" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="Open Browser">
+            <Label layoutX="84.0" layoutY="-4.0" text="ADD CREDENTIALS" textFill="#ff5353">
                <font>
-                  <Font size="19.0" />
-               </font>
-            </Button>
-            <Button fx:id="edit" layoutX="33.0" layoutY="426.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="35.0" prefWidth="73.0" style="-fx-background-color: transparent;" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="EDIT" textFill="WHITE">
-               <font>
-                  <Font name="Berlin Sans FB" size="22.0" />
-               </font>
-            </Button>
-            <Label layoutX="68.0" layoutY="-2.0" text="ADD CREDENTIALS" textFill="#c1d2de">
-               <font>
-                  <Font name="Berlin Sans FB" size="24.0" />
+                  <Font name="Berlin Sans FB" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="87.0" layoutY="72.0" text="Application Name" textFill="WHITE">
+            <Label layoutX="97.0" layoutY="70.0" text="Application Name" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="69.0" layoutY="123.0" text="User Name" textFill="WHITE">
+            <Label layoutX="116.0" layoutY="122.0" text="User Name" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="69.0" layoutY="170.0" prefHeight="21.0" prefWidth="88.0" text="Password" textFill="WHITE">
+            <Label layoutX="115.0" layoutY="179.0" prefHeight="21.0" prefWidth="73.0" text="Password" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="307.0" prefHeight="21.0" prefWidth="179.0" text="Secure Password Hint" textFill="WHITE">
+            <Label layoutX="87.0" layoutY="295.0" prefHeight="21.0" prefWidth="157.0" text="Secure Password Hint" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="17.0" />
                </font>
             </Label>
             <TextField fx:id="nameField" layoutX="87.0" layoutY="80.0" prefHeight="35.0" prefWidth="149.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
-            <TextField fx:id="passwordField" layoutX="69.0" layoutY="180.0" prefHeight="35.0" prefWidth="199.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
-            <TextField fx:id="loginUrlField" layoutX="48.0" layoutY="262.0" prefHeight="35.0" prefWidth="199.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
-            <TextArea fx:id="passwordHintField" layoutX="51.0" layoutY="339.0" prefHeight="27.0" prefWidth="213.0" promptText="e.g First Dog Name" />
-            <Label layoutX="50.0" layoutY="252.0" text="Login URL" textFill="WHITE">
-               <font>
-                  <Font name="Berlin Sans FB" size="17.0" />
-               </font>
-            </Label>
-            <TextField fx:id="usernameField" layoutX="69.0" layoutY="132.0" prefHeight="21.0" prefWidth="157.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
-            <Button fx:id="saveButton" layoutX="118.0" layoutY="407.0" mnemonicParsing="false" onAction="#saveButton_Click" prefHeight="39.0" prefWidth="80.0" style="-fx-background-color: transparent;" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="SAVE" textFill="WHITE">
+            <TextField fx:id="passwordField" layoutX="66.0" layoutY="190.0" prefHeight="35.0" prefWidth="191.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
+            <TextArea fx:id="passwordHintField" layoutX="65.0" layoutY="320.0" prefHeight="38.0" prefWidth="199.0" promptText="e.g First Dog Name" />
+            <TextField fx:id="usernameField" layoutX="83.0" layoutY="133.0" prefHeight="21.0" prefWidth="157.0" styleClass="labels" stylesheets="@../../CSS/AddPassword.css" />
+            <Button fx:id="saveButton" layoutX="112.0" layoutY="375.0" mnemonicParsing="false" onAction="#saveButton_Click" prefHeight="39.0" prefWidth="80.0" style="-fx-background-color: transparent;" styleClass="sideBarButtons" stylesheets="@../../CSS/Home.css" text="SAVE" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
-            <Button fx:id="generateButton" layoutX="94.0" layoutY="220.0" mnemonicParsing="false" onAction="#generateButton_Click" prefHeight="20.0" prefWidth="130.0" styleClass="generateButton" stylesheets="@../../CSS/Register.css" text="GeneratePassword" textFill="WHITE">
+            <Button fx:id="generateButton" layoutX="94.0" layoutY="232.0" mnemonicParsing="false" onAction="#generateButton_Click" prefHeight="20.0" prefWidth="130.0" styleClass="generateButton" stylesheets="@../../CSS/Register.css" text="GeneratePassword" textFill="WHITE">
                <font>
-                  <Font name="Berlin Sans FB" size="11.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font>
             </Button>
+            <ImageView fx:id="image" fitHeight="140.0" fitWidth="157.0" layoutX="90.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/topSecretStamp.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

@@ -10,14 +10,14 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="909.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Register">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="616.0" prefWidth="909.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Register">
    <children>
       <ImageView fitHeight="512.0" fitWidth="775.0" layoutX="70.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/BackGround.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="176.0" fitWidth="171.0" layoutX="70.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="176.0" fitWidth="171.0" layoutX="70.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/TopSecret.png" />
          </image>

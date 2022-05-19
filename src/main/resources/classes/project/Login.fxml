@@ -9,39 +9,39 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="646.0" prefWidth="916.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Login">
+<Pane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#paneDragged" onMousePressed="#panePressed" prefHeight="646.0" prefWidth="916.0" styleClass="Main" stylesheets="@../../CSS/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.project.Login">
    <children>
-      <ImageView fitHeight="347.0" fitWidth="468.0" layoutX="63.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="109.0" fitWidth="202.0" layoutX="293.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/LoginBackground1.png" />
+            <Image url="@../../images/registerBackgroundLogin.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="452.0" fitWidth="598.0" layoutX="402.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+      <ImageView fitHeight="386.0" fitWidth="535.0" layoutX="368.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
          <image>
-            <Image url="@../../images/LoginBackground2.png" />
+            <Image url="@../../images/loginbg.png" />
          </image>
       </ImageView>
-      <TextField fx:id="usernameField" layoutX="517.0" layoutY="224.0" prefHeight="31.0" prefWidth="231.0" promptText="username" styleClass="labels" stylesheets="@../../CSS/Register.css" />
-      <PasswordField fx:id="passwordField" layoutX="517.0" layoutY="274.0" prefHeight="31.0" prefWidth="231.0" promptText="password" styleClass="labels" stylesheets="@../../CSS/Register.css" />
-      <Button layoutX="517.0" layoutY="354.0" onAction="#loginButton_Click" prefHeight="39.0" prefWidth="149.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="SIGN IN" textFill="#dcdcdc">
+      <TextField fx:id="usernameField" layoutX="540.0" layoutY="213.0" prefHeight="35.0" prefWidth="191.0" promptText="username" styleClass="labels" stylesheets="@../../CSS/Register.css" />
+      <PasswordField fx:id="passwordField" layoutX="536.0" layoutY="256.0" prefHeight="35.0" prefWidth="213.0" promptText="password" styleClass="labels" stylesheets="@../../CSS/Register.css" />
+      <Button layoutX="561.0" layoutY="331.0" onAction="#loginButton_Click" prefHeight="39.0" prefWidth="149.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="SIGN IN" textFill="#dcdcdc">
          <font>
             <Font name="Berlin Sans FB" size="27.0" />
          </font></Button>
-      <Button layoutX="89.0" layoutY="337.0" mnemonicParsing="false" onAction="#registerButton_Click" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: transparent;" styleClass="registerButton" text="CREATE ACCOUNT" textFill="#b4c1cc">
+      <Button fx:id="createAccountButton" layoutX="307.0" layoutY="406.0" mnemonicParsing="false" onAction="#registerButton_Click" prefHeight="35.0" prefWidth="157.0" style="-fx-background-color: transparent;" styleClass="registerButton" text="CREATE ACCOUNT" textFill="#b4c1cc">
          <font>
-            <Font name="Berlin Sans FB" size="20.0" />
+            <Font name="Berlin Sans FB" size="16.0" />
          </font></Button>
-      <Label layoutX="517.0" layoutY="163.0" prefHeight="46.0" prefWidth="129.0" text="LOG IN" textFill="#b9b0b0">
+      <Label layoutX="571.0" layoutY="150.0" prefHeight="46.0" prefWidth="129.0" text="LOG IN" textFill="#b9b0b0">
          <font>
             <Font name="Berlin Sans FB" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="517.0" layoutY="550.0" onAction="#returnButton_Click" prefHeight="39.0" prefWidth="149.0" styleClass="returnButton" stylesheets="@../../CSS/Register.css" text="RETURN" textFill="#cfb8b8">
+      <Button layoutX="470.0" layoutY="532.0" onAction="#returnButton_Click" prefHeight="39.0" prefWidth="112.0" styleClass="returnButton" stylesheets="@../../CSS/Register.css" text="RETURN" textFill="#b9b8cf">
          <font>
-            <Font name="Berlin Sans FB" size="28.0" />
+            <Font name="Berlin Sans FB" size="22.0" />
          </font>
       </Button>
-      <TextField fx:id="errorField" layoutX="458.0" layoutY="320.0" prefHeight="26.0" prefWidth="324.0" style="-fx-background-color: transparent;" styleClass="errorLabel" stylesheets="@../../CSS/Register.css">
+      <TextField fx:id="errorField" layoutX="481.0" layoutY="306.0" prefHeight="26.0" prefWidth="324.0" style="-fx-background-color: transparent;" styleClass="errorLabel" stylesheets="@../../CSS/Register.css">
          <font>
             <Font name="Berlin Sans FB" size="18.0" />
          </font>

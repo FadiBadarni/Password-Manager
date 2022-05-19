@@ -18,8 +18,7 @@ public class ApplicationCard extends Pane {
     protected final Label appName;
     protected final Label username;
 
-    public ApplicationCard(String appName, String UserName, String icon, String link, String password, Home fx) throws FileNotFoundException {
-
+    public ApplicationCard(String appName, String UserName, String icon, String hint, String password, Home fx) throws FileNotFoundException {
         photo = new ImageView();
         this.appName = new Label();
         username = new Label();
@@ -66,13 +65,13 @@ public class ApplicationCard extends Pane {
         username.setLayoutX(25);
         username.setLayoutY(155);
         username.setPrefHeight(19.0);
-        username.setPrefWidth(115.0);
-        username.setText("Username -> " + UserName);
+        username.setPrefWidth(130);
+        username.setText("Username - " + UserName);
         username.setFont(new Font(13.0));
 
         String finalIcon = icon;
         setOnMouseClicked(e -> {
-            fx.show(appName, UserName, finalIcon, link, password);
+            fx.show(appName, UserName, finalIcon, hint, password);
 
         });
 

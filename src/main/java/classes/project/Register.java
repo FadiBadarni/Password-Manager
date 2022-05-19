@@ -1,6 +1,13 @@
 package classes.project;
 
+import animatefx.animation.AnimationFX;
+import animatefx.animation.SlideInRight;
+import animatefx.animation.SlideOutLeft;
+import animatefx.animation.SlideOutRight;
 import com.opencsv.exceptions.CsvValidationException;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +17,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
@@ -31,9 +40,23 @@ public class Register implements Initializable {
     @FXML
     private Button generateButton, registerButton, eyeButton, eyeButton2;
     private static Stage stg;
+    @FXML
+    private ImageView image;
+    @FXML
+    private Pane mainPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        AnimationFX animateEnter = new SlideInRight(mainPane);
+        animateEnter.play();
+
+        RotateTransition rt = new RotateTransition(Duration.millis(6000), image);
+        rt.setByAngle(360);
+        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setInterpolator(Interpolator.LINEAR);
+        rt.play();
+
         Image img = null, img2;
         img = new Image(new File("src/main/resources/images/ViewPasswordEye.png").toURI().toString());
         img2 = new Image(new File("src/main/resources/images/hidePasswordIcon.png").toURI().toString());
@@ -138,8 +161,16 @@ public class Register implements Initializable {
     }
 
     public void returnButton_Click(ActionEvent actionEvent) throws IOException {
-        Main m = new Main();
-        m.changeScene("Main.fxml");
+        AnimationFX animateReturn = new SlideOutLeft(mainPane);
+        animateReturn.setOnFinished(actionEvent2 -> {
+            Main m = new Main();
+            try {
+                m.changeScene("Main.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        animateReturn.play();
     }
 
     public void panePressed(MouseEvent mouseEvent) {
