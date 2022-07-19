@@ -2,7 +2,7 @@
 # Password Manager Application.
 ### A Java built application to store and save passwords.
 <p float="left">
-  <img src="  https://i.ibb.co/P41Zp1r/picture1.png" width="350" />
+  <img src="https://i.ibb.co/P41Zp1r/picture1.png" width="350" />
   <img src="https://i.ibb.co/VMQJ9Q8/picture2.png" width="350" />
 </p></br>
 
