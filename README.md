@@ -1,34 +1,42 @@
+# Password Manager: Securely Store Your Credentials 🔒
 
-# Password Manager Application.
-### A Java built application to store and save passwords.
-<p float="left">
-  <img src="https://i.ibb.co/P41Zp1r/picture1.png" width="350" />
-  <img src="https://i.ibb.co/VMQJ9Q8/picture2.png" width="350" />
-</p></br>
+## Overview 📖
 
-### Motivation-
-A Java program that is made in order to understand the fundementals of password protection and data base management alongside encryption for sensetive data and saving data.
+A Java application designed to help users securely store and manage their passwords, while learning about password protection, database management, and encryption for sensitive data.
 
-### General Glance-
-The application was built using Java and JavaFX Script, SceneBuilder was used in order to easily access and edit the FXML files in the project.
+## Features 🌟
 
-##### Functionality-
-The application requires user registeration and login in order to be able to add credintials to the user's profile. the registeration page contains a password generator which works by following general passwords standards to ensure that the user will get the strongest safest password.
-the home page contains a plus icon on the bottom right side of the page which on clicking opens a sidebar that will allow the user to inject personal data into the system, upon hitting the save button after inserting the data the given information will be saved in a MYSQL database according to a few sets.
-Before saving the password it will be encrypted using **SHA-512** Encryption Algorithm and will be saved in that manner, upon logging in the system will encrypt the inserted password using the same algorithm and check it with the password associated with that specific username.
-In addition to the password, the system also saves the application name, a password hint (Encrypted), and a user name.
-#### Welcome Screen
-This is the screen you will be greeted with, each plate of the 4 plates resembles a page in the application itself and contains its own functionality and sole purpose.
+- Built using Java and JavaFX
+- SceneBuilder for easy FXML file editing
+- User registration and login system
+- Password generator adhering to strong password standards
+- Stores encrypted data in a MySQL database
+- **SHA-512** encryption algorithm for password protection
 
-![alt text](https://i.ibb.co/P41Zp1r/picture1.png)
-### Register Screen
-![alt text](https://i.ibb.co/VMQJ9Q8/picture2.png)
-### Home Screen
+## Screenshots 📸
 
-![alt text](https://i.ibb.co/N7v0sqj/picture3.png)
-### Credentials Injection
-![alt text](https://i.ibb.co/fH4nkvx/picture4.png)
-#### Future Plans
-Usage of Symmetric/Asymmetric Encryption Algorithms.
-Redirection and logging the user to a specific web page accordingly.
-KeyStroke Logging Application Check.
+| Welcome Screen                                       | Register Screen                                    |
+| ---------------------------------------------------- | -------------------------------------------------- |
+| ![Welcome Screen](https://i.ibb.co/P41Zp1r/picture1.png) | ![Register Screen](https://i.ibb.co/VMQJ9Q8/picture2.png) |
+
+| Home Screen                                          | Credentials Injection                              |
+| ---------------------------------------------------- | -------------------------------------------------- |
+| ![Home Screen](https://i.ibb.co/N7v0sqj/picture3.png)   | ![Credentials Injection](https://i.ibb.co/fH4nkvx/picture4.png) |
+
+## Getting Started 🚀
+
+To use the Password Manager, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Install the required dependencies (refer to the POM.XML configuration).
+3. Run the application using your preferred IDE or the command line.
+
+## Future Plans 🛣️
+
+- Implement symmetric/asymmetric encryption algorithms
+- Redirect and log the user into specific web pages
+- Integrate a keystroke logging application check
+
+## Contributing 🤝
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change. Don't forget to update tests as appropriate.
